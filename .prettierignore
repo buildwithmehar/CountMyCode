@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.hallmark/
+docs/superpowers/
+package-lock.json
+src/demo/
+public/licenses/

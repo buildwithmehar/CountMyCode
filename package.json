@@ -1,0 +1,52 @@
+{
+  "name": "countmycode",
+  "version": "2.0.0",
+  "description": "High-performance in-browser analytics platform for software repositories",
+  "author": "Mehar Ali",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-notices.mjs && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "benchmark": "tsx scripts/benchmark-scan.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm test && npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.0",
+    "fflate": "^0.8.3",
+    "ignore": "^7.0.14",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^0.408.0",
+    "prismjs": "^1.30.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/prismjs": "^1.26.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.5.3",
+    "vite": "^7.3.7"
+  },
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildwithmehar/CountMyCode.git"
+  },
+  "homepage": "https://github.com/buildwithmehar/CountMyCode#readme",
+  "bugs": {
+    "url": "https://github.com/buildwithmehar/CountMyCode/issues"
+  }
+}

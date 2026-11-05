@@ -1,0 +1,4 @@
+/* Shared note styles */
+.note { padding: 24px; border-radius: 12px; }
+.note-title { font-size: 24px; }
+.note-body { line-height: 1.6; }

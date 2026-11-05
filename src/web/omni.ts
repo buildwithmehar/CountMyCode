@@ -2,6 +2,7 @@ import type { OmniApi } from "../renderer/src/global";
 import type { AppSettings, ScanProgress, ScanPhase } from "../shared/types";
 import { computeStats } from "../shared/analytics";
 import { createCsvReport } from "../shared/export";
+import { normalizeSettings } from "../shared/settings";
 import {
   createIgnoreRules,
   createIgnoreMatcher,
@@ -16,11 +17,6 @@ import type { SourceFile } from "./sources";
 import { createProgressGate } from "./progress";
 import { chooseWorkerCount } from "./scheduling";
 
-const DEFAULT_SETTINGS: AppSettings = {
-  workerCount: 0,
-  customIgnore: [],
-  maxFileSizeKB: 10240,
-};
 let directory: FileSystemDirectoryHandle | null = null,
   selected: SourceFile[] = [],
   name = "",
@@ -55,12 +51,11 @@ function emit(
 }
 function settings(): AppSettings {
   try {
-    return {
-      ...DEFAULT_SETTINGS,
-      ...JSON.parse(localStorage.getItem("omnicount-settings") || "{}"),
-    };
+    return normalizeSettings(
+      JSON.parse(localStorage.getItem("omnicount-settings") || "{}"),
+    );
   } catch {
-    return DEFAULT_SETTINGS;
+    return normalizeSettings(null);
   }
 }
 function meta(item: SourceFile): WebFileMetadata {
@@ -339,7 +334,10 @@ const api: OmniApi = {
   },
   loadSettings: async () => settings(),
   saveSettings: async (next) => {
-    localStorage.setItem("omnicount-settings", JSON.stringify(next));
+    localStorage.setItem(
+      "omnicount-settings",
+      JSON.stringify(normalizeSettings(next)),
+    );
   },
 };
 window.omni = api;

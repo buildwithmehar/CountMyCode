@@ -39,6 +39,7 @@ import {
 } from "./lib/history";
 import { downloadPdf } from "./lib/pdf";
 import { number } from "./lib/presentation";
+import { normalizeSettings } from "@shared/settings";
 import {
   WorkbenchOverview,
   WorkbenchAnalytics,
@@ -70,11 +71,7 @@ function initialView() {
       ? path
       : "404";
 }
-const defaults: AppSettings = {
-  workerCount: 0,
-  customIgnore: [],
-  maxFileSizeKB: 10240,
-};
+const defaults = normalizeSettings(null);
 
 export default function App() {
   const [view, setView] = useState(initialView),
@@ -357,8 +354,9 @@ export default function App() {
     }
   }
   async function saveSettings(next: AppSettings) {
-    await window.omni.saveSettings(next);
-    setSettings(next);
+    const normalized = normalizeSettings(next);
+    await window.omni.saveSettings(normalized);
+    setSettings(normalized);
   }
   function fresh() {
     window.omni.clearSource();

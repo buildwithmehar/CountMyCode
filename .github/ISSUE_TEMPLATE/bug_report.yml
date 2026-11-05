@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible problem with scanning or the workspace.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Use a small synthetic example. Redact private paths and source code from screenshots. For vulnerabilities, follow SECURITY.md instead.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the import method and a minimal example when relevant.
+      placeholder: "1. Open a ZIP containing…"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and operating system
+      placeholder: Chrome version, Windows/macOS/Linux version
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App URL or commit
+      placeholder: Hosted URL, local build, or commit SHA
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Error message or screenshot
+      description: Remove private project names, paths, snippets, and credentials.

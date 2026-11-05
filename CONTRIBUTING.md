@@ -15,3 +15,5 @@ Keep parsing and report logic in `src/shared`, file access and worker orchestrat
 Local folder and ZIP analysis must continue to work without sending source code to a server. Do not add telemetry or upload behavior without a clear product decision and updated privacy documentation.
 
 Describe the concrete problem, the resulting behavior, and how you verified it. Contributions are distributed under the repository's MIT license; third-party assets retain their own licenses.
+
+Use the bug-report or feature-request form for actionable issues. Report vulnerabilities using [SECURITY.md](SECURITY.md), rather than including sensitive details in public issues.

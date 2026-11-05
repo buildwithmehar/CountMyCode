@@ -2,6 +2,8 @@
 
 Use Node.js 24 and npm. Install with `npm ci`, then start the app with `npm run dev`.
 
+CI verifies the project on Windows and Linux. Keep source files in UTF-8 with LF line endings; the repository includes EditorConfig and Git attributes for consistent formatting.
+
 Before opening a pull request, run:
 
 ```sh

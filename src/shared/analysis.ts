@@ -42,7 +42,7 @@ function syntaxFor(filename: string) {
 export function analyzeText(content: string, filename: string) {
   const { block, prefixes, tokens } = syntaxFor(filename);
   const lines = content
-    ? content.replace(/\r\n/g, "\n").replace(/\n$/, "").split("\n")
+    ? content.replace(/\r\n?/g, "\n").replace(/\n$/, "").split("\n")
     : [];
   let blankLines = 0,
     commentLines = 0,

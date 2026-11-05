@@ -11,6 +11,19 @@ test("empty and terminal newline do not invent lines", () => {
   assert.equal(analyzeText("", "a.ts").totalLines, 0);
   assert.equal(analyzeText("const a = 1\n", "a.ts").totalLines, 1);
 });
+
+test("LF, CRLF and CR line endings produce the same counts and marker positions", () => {
+  const lines = [
+    "const answer = 42;",
+    "// TODO: explain this",
+    "",
+    "return answer;",
+    "",
+  ];
+  const expected = analyzeText(lines.join("\n"), "example.ts");
+  assert.deepEqual(analyzeText(lines.join("\r\n"), "example.ts"), expected);
+  assert.deepEqual(analyzeText(lines.join("\r"), "example.ts"), expected);
+});
 test("strings, mixed block comments and comment markers are classified", () => {
   const result = analyzeText(
     'const url = "https://example.com";\n/* TODO: explain\n * detail */ const a = 1;\n// FIXME: handle errors\n\n',

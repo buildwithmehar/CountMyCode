@@ -5,6 +5,8 @@
 
 A browser-based repository workbench for understanding a codebase. Explore files, count code and comments, find duplicate content, and compare scans. Local source files stay on your device. No account, backend, or API key is required.
 
+**[Open the live app →](https://countmycode.pages.dev/)**
+
 ![CountMyCode overview in the light theme](docs/images/overview.png)
 
 ## Run locally

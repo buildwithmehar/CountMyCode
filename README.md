@@ -91,6 +91,8 @@ tests/             Parser, import, scheduling, export and tree regressions
 docs/              Screenshots, deployment guide and performance notes
 ```
 
+Read the [architecture guide](docs/architecture.md) for scan flow, storage boundaries and where to make changes.
+
 ## License
 
 Copyright © 2026 Mehar Ali. Project code is available under the [MIT License](LICENSE). Third-party packages and fonts retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
